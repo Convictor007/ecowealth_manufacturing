@@ -38,7 +38,6 @@ export const BRAND = {
 export const NAV_LINKS = [
   { label: 'Overview', href: '#overview' },
   { label: 'Effective For', href: '#conditions' },
-  { label: 'The 7 Rs', href: '#process' },
   { label: 'Packages', href: '#packages' },
   { label: 'Specifications', href: '#specs' },
   { label: 'Accreditation', href: '#accreditation' },

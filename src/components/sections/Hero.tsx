@@ -64,14 +64,6 @@ export function Hero() {
             hospitals, clinics, and wellness centers. Turnkey, hygienic, and
             ready to generate returns from day one.
           </p>
-          <div className="hero__actions" data-hero-fade>
-            <a className="btn btn--primary" href="#contact">
-              Request a Proposal
-            </a>
-            <a className="btn btn--ghost" href="#packages">
-              View Packages
-            </a>
-          </div>
           <ul className="hero__stats" data-hero-fade>
             <li>
               <strong>100%</strong>
