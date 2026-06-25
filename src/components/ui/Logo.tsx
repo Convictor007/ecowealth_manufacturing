@@ -1,4 +1,4 @@
-import logo from '../../assets/images/ecowealth_icon.png'
+import logo from '../../assets/images/ecowealth_icon1.png'
 
 interface LogoProps {
   className?: string

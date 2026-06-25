@@ -30,6 +30,8 @@ export const BRAND = {
   phone: '+63 919 861 3002',
   address: 'Coral Street, San Nicolas, Poblacion, Iriga City',
   location: 'Camarines Sur 4431, Bicol Region, Philippines',
+  fullAddress:
+    'Coral Street, San Nicolas, Poblacion, Iriga City, Camarines Sur 4431, Bicol Region, Philippines',
   coordinates: { lat: 13.44274, lng: 123.40433 },
 }
 

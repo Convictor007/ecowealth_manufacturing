@@ -81,7 +81,7 @@ export function Contact() {
               <span className="contact__detail-icon">
                 <Icon name="pin" />
               </span>
-              <span>{BRAND.location}</span>
+              <span>{BRAND.fullAddress}</span>
             </li>
           </ul>
         </Reveal>
