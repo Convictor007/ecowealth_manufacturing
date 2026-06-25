@@ -3,10 +3,14 @@ import machine650 from '../assets/images/650k/machine-650k.png'
 import bedPro from '../assets/images/1m/treatment-bed-1m.png'
 import bed650 from '../assets/images/650k/treatment_bed_650k.png'
 import bag650 from '../assets/images/650k/treatment_bag_650k.png'
+import dtiLogo from '../assets/images/agencies/dti.svg'
+import birLogo from '../assets/images/agencies/bir.png'
+import fdaLogo from '../assets/images/agencies/fda.svg'
 import type {
   Audience,
   ComponentItem,
   Condition,
+  Credential,
   MachinePackage,
   SevenR,
   SpecGroup,
@@ -17,12 +21,16 @@ export const MACHINE_IMAGE = machine
 
 export const BRAND = {
   name: 'Eco-Wealth',
+  legalName: 'Eco-Wealth Medical Equipment Manufacturing',
+  owner: 'Edgar Pelongo Bustamante',
   product: 'Modern Labatiba Machine',
   subtitle: 'Modern Labatiba Colon Hydrotherapy',
   tagline: 'The Seven Rs of Colon Hydrotherapy',
-  email: 'info@ecowealth.ph',
-  phone: '+63 900 000 0000',
-  location: 'Philippines',
+  email: 'ecowealthmedicalequipment@gmail.com',
+  phone: '+63 919 861 3002',
+  address: 'Coral Street, San Nicolas, Poblacion, Iriga City',
+  location: 'Camarines Sur 4431, Bicol Region, Philippines',
+  coordinates: { lat: 13.44274, lng: 123.40433 },
 }
 
 export const NAV_LINKS = [
@@ -31,8 +39,38 @@ export const NAV_LINKS = [
   { label: 'The 7 Rs', href: '#process' },
   { label: 'Packages', href: '#packages' },
   { label: 'Specifications', href: '#specs' },
-  { label: 'Partners', href: '#audience' },
+  { label: 'Accreditation', href: '#accreditation' },
   { label: 'Contact', href: '#contact' },
+]
+
+export const CREDENTIALS: Credential[] = [
+  {
+    agency: 'DTI',
+    badge: 'dti',
+    logo: dtiLogo,
+    fullName: 'Department of Trade and Industry',
+    detail: 'Registered Business Name (National)',
+    reference: 'Business Name No. 8090515',
+    validity: 'Valid Apr 8, 2026 – Apr 8, 2031',
+  },
+  {
+    agency: 'BIR',
+    badge: 'bir',
+    logo: birLogo,
+    fullName: 'Bureau of Internal Revenue',
+    detail: 'Certificate of Registration (BIR Form 2303)',
+    reference: 'Retail Sale of Medical Equipment',
+    validity: 'Registered Jun 4, 2026',
+  },
+  {
+    agency: 'FDA',
+    badge: 'fda',
+    logo: fdaLogo,
+    fullName: 'Food and Drug Administration · DOH',
+    detail: 'Establishment License to Operate — Medical Device Distributor',
+    reference: 'LTO Ref. FDA-3000020282227',
+    validity: 'Importer · Exporter · Wholesaler (establishment)',
+  },
 ]
 
 export const CONDITIONS: Condition[] = [

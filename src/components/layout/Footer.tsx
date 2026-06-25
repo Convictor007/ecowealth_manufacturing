@@ -24,13 +24,18 @@ export function Footer() {
         <div className="footer__contact">
           <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>
           <a href={`tel:${BRAND.phone.replace(/\s/g, '')}`}>{BRAND.phone}</a>
+          <span>{BRAND.address}</span>
           <span>{BRAND.location}</span>
         </div>
       </div>
 
       <div className="footer__bottom">
         <p>
-          © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
+          © {new Date().getFullYear()} {BRAND.legalName}. All rights reserved.
+        </p>
+        <p className="footer__reg">
+          DTI Reg. No. 8090515 · BIR Registered · FDA Establishment LTO Ref.
+          FDA-3000020282227 · Owned by {BRAND.owner}
         </p>
         <p className="footer__disclaimer">
           The Modern Labatiba Machine is a complementary wellness device. Stated

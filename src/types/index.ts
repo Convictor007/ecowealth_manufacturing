@@ -51,6 +51,16 @@ export interface Audience {
   icon: string
 }
 
+export interface Credential {
+  agency: string
+  badge: string
+  logo: string
+  fullName: string
+  detail: string
+  reference: string
+  validity?: string
+}
+
 export type FacilityType =
   | 'hospital'
   | 'clinic'

@@ -9,6 +9,7 @@ import { Process } from './components/sections/Process'
 import { Packages } from './components/sections/Packages'
 import { Specifications } from './components/sections/Specifications'
 import { Audience } from './components/sections/Audience'
+import { Accreditation } from './components/sections/Accreditation'
 import { Contact } from './components/sections/Contact'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Packages />
         <Specifications />
         <Audience />
+        <Accreditation />
         <Contact />
       </main>
       <Footer />
