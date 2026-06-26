@@ -95,10 +95,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
-      <a className="hero__scroll" href="#overview" aria-label="Scroll to overview">
-        <span />
-      </a>
     </section>
   )
 }
