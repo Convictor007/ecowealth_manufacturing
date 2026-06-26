@@ -23,7 +23,7 @@ export const BRAND = {
   name: 'Eco-Wealth',
   legalName: 'Eco-Wealth Medical Equipment Manufacturing',
   owner: 'Edgar Pelongo Bustamante',
-  product: 'Modern Labatiba Machine',
+  product: 'Medical Equipment Manufacturing',
   subtitle: 'Modern Labatiba Colon Hydrotherapy',
   tagline: 'The Seven Rs of Colon Hydrotherapy',
   email: 'ecowealthmedicalequipment@gmail.com',
