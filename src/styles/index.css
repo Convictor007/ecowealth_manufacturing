@@ -695,19 +695,22 @@ img {
   background: var(--white);
 }
 .conditions__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 .condition {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 18px;
-  border-radius: 14px;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 50px;
   background: var(--sage-50);
   border: 1px solid var(--line);
   font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .condition:hover {
@@ -1454,6 +1457,9 @@ img {
   .audience__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .conditions__grid {
+    gap: 8px;
+  }
   .accreditation__grid {
     grid-template-columns: 1fr;
   }
@@ -1514,6 +1520,9 @@ img {
   .specs__groups,
   .footer__inner {
     grid-template-columns: 1fr;
+  }
+  .conditions__grid {
+    gap: 6px;
   }
   .pkg {
     padding: 22px;
