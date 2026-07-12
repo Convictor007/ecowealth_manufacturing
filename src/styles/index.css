@@ -452,7 +452,7 @@ img {
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 0.85fr 1.15fr;
   gap: 40px;
   align-items: center;
 }
@@ -525,7 +525,7 @@ img {
   padding: 0;
   display: grid;
   place-items: stretch;
-  height: clamp(420px, 50vw, 560px);
+  height: clamp(460px, 55vw, 620px);
 }
 .hero__machine .pimg,
 .hero__machine img {
@@ -641,7 +641,7 @@ img {
   box-shadow: none;
   display: grid;
   place-items: stretch;
-  height: clamp(400px, 45vw, 520px);
+  height: clamp(420px, 48vw, 560px);
 }
 .overview__media-card .pimg,
 .overview__media-card img {
