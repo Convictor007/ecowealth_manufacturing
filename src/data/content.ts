@@ -147,7 +147,7 @@ export const PACKAGES: MachinePackage[] = [
     dimensions: '14" W × 16" L × 21" H',
     gallery: [
       { image: bed650, label: 'Foldable treatment bed' },
-      { image: bag650, label: 'Portable carry case' },
+      { image: bag650, label: 'Folded carry case' },
     ],
     inclusions: [
       { label: '1 Stainless Tank' },
