@@ -48,6 +48,13 @@ export function Packages() {
                 </div>
               </div>
 
+              {pkg.dimensions && (
+                <div className="pkg__dimensions">
+                  <span className="pkg__dim-label">Machine Size:</span>
+                  <strong>{pkg.dimensions}</strong>
+                </div>
+              )}
+
               <div className="pkg__gallery">
                 {pkg.gallery.map((item) => (
                   <figure className="pkg__gallery-item" key={item.label}>

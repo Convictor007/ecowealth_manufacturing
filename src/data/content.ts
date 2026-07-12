@@ -144,6 +144,7 @@ export const PACKAGES: MachinePackage[] = [
     price: '₱650,000',
     priceValue: 650000,
     image: machine650,
+    dimensions: '21" × 16"',
     gallery: [
       { image: bed650, label: 'Foldable treatment bed' },
       { image: bag650, label: 'Portable carry case' },
@@ -169,6 +170,7 @@ export const PACKAGES: MachinePackage[] = [
     priceValue: 1000000,
     featured: true,
     image: machine,
+    dimensions: '14" W × 16" L × 21" H',
     gallery: [{ image: bedPro, label: 'Premium stainless treatment bed' }],
     inclusions: [
       { label: '1 Stainless Tank' },
@@ -191,6 +193,7 @@ export const SPECS: SpecItem[] = [
   { label: 'Tank', value: 'Food-grade stainless steel' },
   { label: 'Water Treatment', value: 'Filtration + UV sterilization' },
   { label: 'Treatment Bed', value: 'Included' },
+  { label: 'Dimensions (1M)', value: '14" W × 16" L × 21" H' },
 ]
 
 /** Detailed, grouped specifications for the Specifications section. */
@@ -201,6 +204,8 @@ export const SPEC_GROUPS: SpecGroup[] = [
       { label: 'System Type', value: 'Closed colon hydrotherapy' },
       { label: 'Cabinet', value: 'Stainless steel construction' },
       { label: 'Tank', value: 'Food-grade stainless steel' },
+      { label: 'Dimensions (1M)', value: '14" W × 16" L × 21" H' },
+      { label: 'Dimensions (Small)', value: '21" × 16"' },
     ],
   },
   {

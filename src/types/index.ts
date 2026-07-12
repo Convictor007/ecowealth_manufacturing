@@ -16,6 +16,7 @@ export interface MachinePackage {
   priceValue: number
   featured?: boolean
   image: string
+  dimensions?: string
   gallery: PackageItem[]
   inclusions: PackageInclusion[]
 }

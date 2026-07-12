@@ -880,6 +880,25 @@ img {
   font-weight: 800;
   line-height: 1.1;
 }
+.pkg__dimensions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0;
+  padding: 10px 14px;
+  background: var(--green-50, #f0fdf4);
+  border-radius: 8px;
+  border: 1px solid var(--green-200, #bbf7d0);
+}
+.pkg__dim-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.pkg__dimensions strong {
+  font-size: 0.95rem;
+  color: var(--green-800);
+  font-weight: 600;
+}
 .pkg__gallery {
   display: flex;
   gap: 14px;
