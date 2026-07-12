@@ -9,7 +9,7 @@ export function Conditions() {
       <div className="container">
         <SectionHeader
           align="center"
-          eyebrow="Effective For"
+          eyebrow="Benefits"
           title="Supporting wellness across many concerns"
           description="Traditionally used as a complementary therapy for a wide range of health and lifestyle concerns."
         />

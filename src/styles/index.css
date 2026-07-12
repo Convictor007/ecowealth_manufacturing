@@ -519,9 +519,9 @@ img {
 .hero__machine {
   position: relative;
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 35%, #16324f, var(--navy-900));
-  box-shadow: var(--shadow-md);
+  overflow: visible;
+  background: transparent;
+  box-shadow: 0 0 80px 20px rgba(46, 158, 91, 0.15), 0 0 160px 60px rgba(46, 158, 91, 0.08);
   padding: 24px;
   display: grid;
   place-items: stretch;
@@ -633,11 +633,11 @@ img {
 }
 .overview__media-card {
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 40%, #16324f, var(--navy-900));
-  border: 1px solid var(--line);
+  overflow: visible;
+  background: transparent;
+  border: none;
   padding: 20px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 0 80px 20px rgba(46, 158, 91, 0.15), 0 0 160px 60px rgba(46, 158, 91, 0.08);
   display: grid;
   place-items: stretch;
   height: clamp(340px, 38vw, 440px);
@@ -837,12 +837,13 @@ img {
   width: 100%;
   height: 280px;
   border-radius: var(--radius);
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 40%, #16324f, var(--navy-900));
-  border: 1px solid var(--line);
+  overflow: visible;
+  background: transparent;
+  border: none;
   margin-bottom: 24px;
   display: grid;
   place-items: center;
+  box-shadow: 0 0 60px 15px rgba(46, 158, 91, 0.12), 0 0 120px 40px rgba(46, 158, 91, 0.06);
 }
 .pkg__media img {
   width: 100%;
