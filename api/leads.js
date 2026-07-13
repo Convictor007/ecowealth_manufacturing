@@ -1,5 +1,6 @@
 import { createLead, listLeads, createTable } from './_lib/leadStore.js'
 import { validateLeadBody } from './_lib/validateLead.js'
+import { sendLeadNotification } from './_lib/sendEmail.js'
 
 let tableEnsured = false
 
@@ -33,6 +34,12 @@ export default async function handler(req, res) {
       }
 
       const lead = await createLead(result.data)
+
+      // Send email notification (non-blocking — don't fail the request if email fails)
+      sendLeadNotification(lead).catch((err) =>
+        console.error('Email notification failed:', err),
+      )
+
       return res.status(201).json({
         success: true,
         message:
