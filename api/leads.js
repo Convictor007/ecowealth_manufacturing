@@ -1,5 +1,7 @@
-import { createLead, listLeads } from './_lib/leadStore.js'
+import { createLead, listLeads, createTable } from './_lib/leadStore.js'
 import { validateLeadBody } from './_lib/validateLead.js'
+
+let tableEnsured = false
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -11,6 +13,11 @@ export default async function handler(req, res) {
   }
 
   try {
+    if (!tableEnsured) {
+      await createTable()
+      tableEnsured = true
+    }
+
     if (req.method === 'GET') {
       const leads = await listLeads()
       return res.status(200).json({ success: true, count: leads.length, leads })
