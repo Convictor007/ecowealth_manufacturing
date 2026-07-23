@@ -26,8 +26,8 @@ export const BRAND = {
   product: 'Medical Equipment Manufacturing',
   subtitle: 'Modern Labatiba Colon Hydrotherapy',
   tagline: 'The Seven Rs of Colon Hydrotherapy',
-  email: 'ecowealthmedicalequipment@gmail.com',
-  phone: '+63 919 861 3002',
+  email: 'ecowealthlabatiba@gmail.com',
+  phone: '0919 861 3002',
   address: 'Coral Street, San Nicolas, Poblacion, Iriga City',
   location: 'Camarines Sur 4431, Bicol Region, Philippines',
   fullAddress:
