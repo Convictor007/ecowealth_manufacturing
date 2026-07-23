@@ -1,8 +1,32 @@
 import { neon } from '@neondatabase/serverless'
 
-const sql = neon(process.env.DATABASE_URL)
+function getSql() {
+  const url = process.env.DATABASE_URL
+  if (!url) {
+    throw new Error(
+      'DATABASE_URL is not configured. Set it in the Vercel project environment variables.',
+    )
+  }
+  return neon(url)
+}
+
+function mapLead(row) {
+  return {
+    id: row.id,
+    referenceId: row.reference_id,
+    fullName: row.full_name,
+    organization: row.organization,
+    email: row.email,
+    phone: row.phone,
+    facilityType: row.facility_type,
+    packageInterest: row.package_interest,
+    message: row.message,
+    createdAt: row.created_at,
+  }
+}
 
 export async function createTable() {
+  const sql = getSql()
   await sql`
     CREATE TABLE IF NOT EXISTS leads (
       id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -23,16 +47,36 @@ export async function createTable() {
 }
 
 export async function createLead(payload) {
+  const sql = getSql()
   const referenceId = `EW-${Date.now().toString(36).toUpperCase()}`
   const [lead] = await sql`
-    INSERT INTO leads (reference_id, full_name, organization, email, phone, facility_type, package_interest, message)
-    VALUES (${referenceId}, ${payload.fullName}, ${payload.organization}, ${payload.email}, ${payload.phone}, ${payload.facilityType}, ${payload.packageInterest}, ${payload.message})
+    INSERT INTO leads (
+      reference_id,
+      full_name,
+      organization,
+      email,
+      phone,
+      facility_type,
+      package_interest,
+      message
+    )
+    VALUES (
+      ${referenceId},
+      ${payload.fullName},
+      ${payload.organization},
+      ${payload.email},
+      ${payload.phone},
+      ${payload.facilityType},
+      ${payload.packageInterest},
+      ${payload.message}
+    )
     RETURNING *
   `
-  return { ...lead, referenceId: lead.reference_id }
+  return mapLead(lead)
 }
 
 export async function listLeads() {
+  const sql = getSql()
   const leads = await sql`SELECT * FROM leads ORDER BY created_at DESC`
-  return leads.map((lead) => ({ ...lead, referenceId: lead.reference_id }))
+  return leads.map(mapLead)
 }

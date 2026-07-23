@@ -50,10 +50,16 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ success: false, message: 'Method not allowed.' })
   } catch (error) {
-    console.error(error)
+    console.error('POST /api/leads failed:', error)
+    const isConfigError =
+      typeof error?.message === 'string' &&
+      (error.message.includes('DATABASE_URL') ||
+        error.message.includes('RESEND_API_KEY'))
     return res.status(500).json({
       success: false,
-      message: 'Something went wrong. Please try again later.',
+      message: isConfigError
+        ? 'Server configuration error. Please contact the site owner.'
+        : 'Something went wrong. Please try again later.',
     })
   }
 }

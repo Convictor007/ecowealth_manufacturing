@@ -1,40 +1,82 @@
-import { randomUUID } from 'node:crypto'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { neon } from '@neondatabase/serverless'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = join(__dirname, '..', 'data')
-const DATA_FILE = join(DATA_DIR, 'leads.json')
+function getSql() {
+  const url = process.env.DATABASE_URL
+  if (!url) {
+    throw new Error(
+      'DATABASE_URL is not configured. Set it in the environment variables.',
+    )
+  }
+  return neon(url)
+}
 
-async function readAll() {
-  try {
-    const raw = await readFile(DATA_FILE, 'utf-8')
-    return JSON.parse(raw)
-  } catch (error) {
-    if (error.code === 'ENOENT') return []
-    throw error
+function mapLead(row) {
+  return {
+    id: row.id,
+    referenceId: row.reference_id,
+    fullName: row.full_name,
+    organization: row.organization,
+    email: row.email,
+    phone: row.phone,
+    facilityType: row.facility_type,
+    packageInterest: row.package_interest,
+    message: row.message,
+    createdAt: row.created_at,
   }
 }
 
-async function persist(leads) {
-  await mkdir(DATA_DIR, { recursive: true })
-  await writeFile(DATA_FILE, JSON.stringify(leads, null, 2), 'utf-8')
+export async function createTable() {
+  const sql = getSql()
+  await sql`
+    CREATE TABLE IF NOT EXISTS leads (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      reference_id VARCHAR(20) UNIQUE NOT NULL,
+      full_name VARCHAR(255) NOT NULL,
+      organization VARCHAR(255),
+      email VARCHAR(255) NOT NULL,
+      phone VARCHAR(50) NOT NULL,
+      facility_type VARCHAR(50) NOT NULL,
+      package_interest VARCHAR(255),
+      message TEXT,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    )
+  `
+  await sql`CREATE INDEX IF NOT EXISTS idx_leads_email ON leads(email)`
+  await sql`CREATE INDEX IF NOT EXISTS idx_leads_created_at ON leads(created_at DESC)`
+  await sql`CREATE INDEX IF NOT EXISTS idx_leads_reference_id ON leads(reference_id)`
 }
 
 export async function createLead(payload) {
-  const leads = await readAll()
-  const lead = {
-    id: randomUUID(),
-    referenceId: `EW-${Date.now().toString(36).toUpperCase()}`,
-    ...payload,
-    createdAt: new Date().toISOString(),
-  }
-  leads.push(lead)
-  await persist(leads)
-  return lead
+  const sql = getSql()
+  const referenceId = `EW-${Date.now().toString(36).toUpperCase()}`
+  const [lead] = await sql`
+    INSERT INTO leads (
+      reference_id,
+      full_name,
+      organization,
+      email,
+      phone,
+      facility_type,
+      package_interest,
+      message
+    )
+    VALUES (
+      ${referenceId},
+      ${payload.fullName},
+      ${payload.organization},
+      ${payload.email},
+      ${payload.phone},
+      ${payload.facilityType},
+      ${payload.packageInterest},
+      ${payload.message}
+    )
+    RETURNING *
+  `
+  return mapLead(lead)
 }
 
 export async function listLeads() {
-  return readAll()
+  const sql = getSql()
+  const leads = await sql`SELECT * FROM leads ORDER BY created_at DESC`
+  return leads.map(mapLead)
 }
